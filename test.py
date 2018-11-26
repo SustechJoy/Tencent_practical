@@ -15,8 +15,11 @@ import csv
 output = 'issue.csv'
 
 if __name__ == '__main__':
-    name = input("请输入github用户名:")
-    secret = getpass.getpass("请输入github密码:")
+    choice = input("请选择是否登录github账号,以得到给定时间内更多访问次数:\n 1:登录\n 2:不登录\n")
+    name = secret = ""
+    if int(choice) == 1:
+        name = input("请输入github用户名:")
+        secret = getpass.getpass("请输入github密码:")
     with open(output, "w", newline="") as file:
         csv_file = csv.writer(file)
         csv_header = ['full_name', 'comments_url', 'number', 'title', 'state', 'body']
